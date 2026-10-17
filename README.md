@@ -128,27 +128,27 @@ Accounts: **A** = owner and deployer, **B** = issuer added by A, **C** = account
 
 **Smart contract deployment**
 
-![Deploy](screenshots/02-deploy.png)
+![Deploy](02-deploy.png)
 
 **MetaMask wallet connection**
 
-![MetaMask connect](screenshots/03-metamask-connect.png)
+![MetaMask connect](03-metamask-connect.png)
 
 **Successful transaction**
 
-![Successful transaction](screenshots/04-success-tx.png)
+![Successful transaction](04-success-tx.png)
 
 **Failed transaction**
 
-![Failed transaction](screenshots/05-failed-tx.png)
+![Failed transaction](05-failed-tx.png)
 
 **Blockchain data displayed through the user interface (valid certificate)**
 
-![UI data](screenshots/06-ui-data.png)
+![UI data](06-ui-data.png)
 
 **Revoked certificate shown in the interface**
 
-![Revoked certificate](screenshots/06b-ui-revoked.png)
+![Revoked certificate](06b-ui-revoked.png)
 
 ## 10. Security note
 
