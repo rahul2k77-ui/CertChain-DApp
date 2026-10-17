@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CertChain: Certificate Verification</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>CertChain</h1>
+      <p id="institution">Not connected</p>
+    </div>
+    <div class="wallet">
+      <div id="walletInfo" class="wallet-info" hidden>
+        <span id="account" class="mono"></span>
+        <span id="network"></span>
+        <span id="role" class="badge"></span>
+      </div>
+      <button id="connectBtn" class="primary">Connect MetaMask</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="verify">
+      <h2>Check a certificate</h2>
+      <p class="hint">Enter the certificate ID printed on the document. Anyone can verify; no wallet fee is charged for this lookup.</p>
+      <div class="row">
+        <input id="verifyId" type="number" min="1" placeholder="Certificate ID, for example 1" />
+        <button id="verifyBtn" class="primary">Verify</button>
+      </div>
+
+      <article id="result" class="cert" hidden>
+        <div id="stamp" class="stamp"></div>
+        <p class="cert-label">This certifies that</p>
+        <h3 id="rName"></h3>
+        <p class="cert-label">has completed</p>
+        <h4 id="rCourse"></h4>
+        <dl>
+          <div><dt>Grade</dt><dd id="rGrade"></dd></div>
+          <div><dt>Issued on</dt><dd id="rDate"></dd></div>
+          <div><dt>Certificate ID</dt><dd id="rId"></dd></div>
+          <div class="wide"><dt>Issued by (address)</dt><dd id="rIssuer" class="mono"></dd></div>
+        </dl>
+      </article>
+      <p id="verifyMsg" class="msg" hidden></p>
+    </section>
+
+    <aside class="panels">
+      <section class="panel">
+        <h2>Registry status</h2>
+        <dl class="stats">
+          <div><dt>Certificates issued</dt><dd id="total">-</dd></div>
+          <div class="wide"><dt>Owner</dt><dd id="owner" class="mono">-</dd></div>
+        </dl>
+      </section>
+
+      <section class="panel">
+        <h2>Issue a certificate</h2>
+        <p class="hint">Authorised issuers only.</p>
+        <label>Student name <input id="iName" maxlength="100" /></label>
+        <label>Course <input id="iCourse" maxlength="100" /></label>
+        <label>Grade <input id="iGrade" maxlength="10" placeholder="A, B+, 9.1" /></label>
+        <button id="issueBtn" class="primary">Issue certificate</button>
+      </section>
+
+      <section class="panel">
+        <h2>Revoke a certificate</h2>
+        <p class="hint">Original issuer or owner only.</p>
+        <label>Certificate ID <input id="revokeId" type="number" min="1" /></label>
+        <button id="revokeBtn" class="danger">Revoke certificate</button>
+      </section>
+
+      <section class="panel">
+        <h2>Manage issuers</h2>
+        <p class="hint">Owner only.</p>
+        <label>Wallet address <input id="issuerAddr" class="mono" placeholder="0x..." /></label>
+        <div class="row">
+          <button id="addIssuerBtn" class="primary">Add issuer</button>
+          <button id="removeIssuerBtn" class="ghost">Remove issuer</button>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <section class="log-wrap">
+    <h2>Transaction log</h2>
+    <ul id="log" class="log"><li class="empty">Transactions will appear here once you send one.</li></ul>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
