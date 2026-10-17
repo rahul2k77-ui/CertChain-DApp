@@ -124,7 +124,7 @@ Accounts: **A** = owner and deployer, **B** = issuer added by A, **C** = account
 
 **Smart contract compilation**
 
-![Compile](screenshots/01-compile.png)
+![Compile](01-compile.png)
 
 **Smart contract deployment**
 
